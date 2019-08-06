@@ -50,19 +50,19 @@ namespace TrashCollection
             }
 
             // creating Creating Manager role    
-            if (!roleManager.RoleExists("TrashManager"))
+            if (!roleManager.RoleExists("Employee"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "TrashManager";
+                role.Name = "Employee";
                 roleManager.Create(role);
 
             }
 
             // creating Creating Employee role    
-            if (!roleManager.RoleExists("TrashCustomer"))
+            if (!roleManager.RoleExists("Customer"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "TrashCustomer";
+                role.Name = "Customer";
                 roleManager.Create(role);
 
             }
