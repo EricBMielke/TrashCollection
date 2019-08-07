@@ -17,7 +17,7 @@ namespace TrashCollection.Models
         public string City { get; set; }
         public string State { get; set; }
 
-        public IEnumerable<string> DaysOfTheWeek { get; set; }
+        public string DaysOfTheWeekPickUp { get; set; }
 
         public string PickUpStartDateSuspend { get; set; }
 
