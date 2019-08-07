@@ -106,3 +106,4 @@ C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollec
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.InitialCreate.resources
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csproj.GenerateResource.cache
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.InitialMigration.resources
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.InitialMigration1.resources
