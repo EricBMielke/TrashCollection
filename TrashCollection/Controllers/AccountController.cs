@@ -168,7 +168,7 @@ namespace TrashCollection.Controllers
                     //Assign Role to user Here    
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     //Ends Here  
-                    return RedirectToAction("CustomerCreate");
+                    return RedirectToAction("Create" , "Customer");
                 }
                 
                 AddErrors(result);
