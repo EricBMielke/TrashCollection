@@ -103,3 +103,6 @@ C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollec
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csproj.CopyComplete
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.dll
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.pdb
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.InitialCreate.resources
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csproj.GenerateResource.cache
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.InitialMigration.resources
