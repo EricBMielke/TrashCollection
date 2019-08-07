@@ -46,7 +46,7 @@ namespace TrashCollection.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Integer,StreetAddress,City,State")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Integer,StreetAddress,City,State,DaysOfTheWeekPickUp")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,34 @@ namespace TrashCollection.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ZipCode,StreetAddress,City,State")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ZipCode,StreetAddress,City,State,DaysOfTheWeekPickUp")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(customer);
+        }
+
+
+        public ActionResult EditDay(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDay([Bind(Include = "Id,FirstName,LastName,ZipCode,StreetAddress,City,State,DaysOfTheWeekPickUp")] Customer customer)
         {
             if (ModelState.IsValid)
             {
