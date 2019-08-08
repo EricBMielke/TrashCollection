@@ -23,6 +23,8 @@ namespace TrashCollection.Models
 
         public string PickUpEndDateSuspend { get; set; }
 
+        public string OneDayPickUp { get; set; }
+
 
 
     }

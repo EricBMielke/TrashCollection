@@ -58,6 +58,38 @@ namespace TrashCollection.Controllers
             return View(customer);
         }
 
+        // GET: Customers/Create
+        public ActionResult CreateOneDayPickUp(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
+
+        // POST: Customers/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateOneDayPickUp([Bind(Include = "Id,FirstName,LastName,Integer,StreetAddress,City,State,DaysOfTheWeekPickUp,OneDayPickUp")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(customer);
+        }
+
         // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
         {
