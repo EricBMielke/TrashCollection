@@ -35,6 +35,9 @@
         <th>
             @Html.DisplayNameFor(model => model.OneDayPickUp)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyPayment)
+        </th>
         <th></th>
     </tr>
 
@@ -63,6 +66,9 @@
     </th>
     <th>
         @Html.DisplayFor(modelItem => item.OneDayPickUp)
+    </th>
+    <th>
+        @Html.DisplayFor(modelItem => item.MonthlyPayment)
     </th>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

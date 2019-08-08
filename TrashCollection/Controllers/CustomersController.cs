@@ -46,11 +46,12 @@ namespace TrashCollection.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Integer,StreetAddress,City,State,DaysOfTheWeekPickUp")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,ZipCode,StreetAddress,City,State,DaysOfTheWeekPickUp")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 db.Customers.Add(customer);
+                customer.MonthlyPayment = CalculateMonthlyUpcomingFee(customer.DaysOfTheWeekPickUp);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -78,7 +79,7 @@ namespace TrashCollection.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateOneDayPickUp([Bind(Include = "Id,FirstName,LastName,Integer,StreetAddress,City,State,DaysOfTheWeekPickUp,OneDayPickUp")] Customer customer)
+        public ActionResult CreateOneDayPickUp([Bind(Include = "Id,FirstName,LastName,ZipCode,StreetAddress,City,State,DaysOfTheWeekPickUp,OneDayPickUp,PickUpStartDateSuspend,PickUpEndDateSuspend")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -115,6 +116,7 @@ namespace TrashCollection.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(customer).State = EntityState.Modified;
+                customer.MonthlyPayment = CalculateMonthlyUpcomingFee(customer.DaysOfTheWeekPickUp);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -142,6 +144,7 @@ namespace TrashCollection.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(customer).State = EntityState.Modified;
+                customer.MonthlyPayment = CalculateMonthlyUpcomingFee(customer.DaysOfTheWeekPickUp);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -181,6 +184,20 @@ namespace TrashCollection.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public int CalculateMonthlyUpcomingFee(DayOfWeek DaysOfTheWeekPickUp)
+        {
+            DateTime start = DateTime.Now;
+            DateTime end = start.AddDays(30);
+            TimeSpan ts = end - start;               
+            int count = (int)Math.Floor(ts.TotalDays / 7);
+            int remainder = (int)(ts.TotalDays % 7);
+            int sinceLastDay = (int)(end.DayOfWeek - DaysOfTheWeekPickUp); 
+            if (sinceLastDay < 0) sinceLastDay += 7; 
+
+            if (remainder >= sinceLastDay) count++;
+
+            return (count * 5);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -17,15 +18,17 @@ namespace TrashCollection.Models
         public string City { get; set; }
         public string State { get; set; }
 
-        public string DaysOfTheWeekPickUp { get; set; }
+        public DayOfWeek DaysOfTheWeekPickUp { get; set; }
 
-        public string PickUpStartDateSuspend { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime PickUpStartDateSuspend { get; set; }
+        [Column(TypeName = "datetime2")]
 
-        public string PickUpEndDateSuspend { get; set; }
+        public DateTime PickUpEndDateSuspend { get; set; }
+        [Column(TypeName = "datetime2")]
 
-        public string OneDayPickUp { get; set; }
-
-
+        public DateTime OneDayPickUp { get; set; }
+        public double MonthlyPayment { get; set; }
 
     }
 }
