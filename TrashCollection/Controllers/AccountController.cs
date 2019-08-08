@@ -168,15 +168,23 @@ namespace TrashCollection.Controllers
                     //Assign Role to user Here    
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     //Ends Here  
-                    return RedirectToAction("Create" , "Customer");
+                    if (model.UserRoles == "Customer")
+                    {
+                        return RedirectToAction("Create", "Customer");
+                    }
+                    else if (model.UserRoles == "Manager")
+                    {
+                        return RedirectToAction("Create", "Employee");
+                    }
+
+
                 }
-                
                 AddErrors(result);
             }
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(),
-                                         "Name", "Name");
-            // If we got this far, something failed, redisplay form 
-            return View(model);
+                                             "Name", "Name");
+                // If we got this far, something failed, redisplay form 
+             return View(model);
         }
 
         //
