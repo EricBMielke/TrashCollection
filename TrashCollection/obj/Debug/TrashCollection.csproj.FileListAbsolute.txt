@@ -98,8 +98,10 @@ C:\Users\Eric\source\repos\TrashCollection\TrashCollection\bin\Microsoft.Owin.Se
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csprojAssemblyReference.cache
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csproj.CoreCompileInputs.cache
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csproj.CopyComplete
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.dll
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.pdb
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csprojAssemblyReference.cache
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.EigthMigration.resources
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csproj.GenerateResource.cache
