@@ -24,7 +24,10 @@
             @Html.DisplayNameFor(model => model.DaysOfTheWeekToPickUp)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomersToPickUp)
+            @Html.DisplayNameFor(model => model.CustomersToPickUpDuringWeek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomersToPickUpToday)
         </th>
         <th></th>
     </tr>
@@ -44,7 +47,10 @@
         @Html.DisplayFor(modelItem => item.DaysOfTheWeekToPickUp)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.CustomersToPickUp)
+        @Html.DisplayFor(modelItem => item.CustomersToPickUpDuringWeek)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CustomersToPickUpToday)
     </td>
 
     @*@foreach (var employeesCustomer in item.CustomersToPickUp)

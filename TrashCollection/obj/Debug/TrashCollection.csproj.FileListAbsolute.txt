@@ -107,3 +107,5 @@ C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollec
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csproj.GenerateResource.cache
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.NinthMigration.resources
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations._11Migration.resources
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations._12Migration.resources
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations._13Migration.resources

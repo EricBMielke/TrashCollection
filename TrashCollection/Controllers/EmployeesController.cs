@@ -48,12 +48,13 @@ namespace TrashCollection.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,ZipCode,DaysOfTheWeekToPickUp,CustomersToPickUp")] Employee employee)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,ZipCode,DaysOfTheWeekToPickUp,CustomersToPickUpDuringWeek,CustomersToPickUpToday")] Employee employee)
         {
             if (ModelState.IsValid)
             {
                 db.Employees.Add(employee);
-                employee.CustomersToPickUp = FindCustomersForEmployeeByZip(employee.ZipCode);
+                employee.CustomersToPickUpDuringWeek = FindCustomersForEmployeeByZip(employee.ZipCode);
+                employee.CustomersToPickUpToday = FindCustomersForEmployeeByDay(employee.DaysOfTheWeekToPickUp, employee.ZipCode);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -81,12 +82,13 @@ namespace TrashCollection.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ZipCode,DaysOfTheWeekToPickUp,CustomersToPickUp")] Employee employee)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ZipCode,DaysOfTheWeekToPickUp,CustomersToPickUpDuringWeeks,CustomersToPickUpToday")] Employee employee)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(employee).State = EntityState.Modified;
-                employee.CustomersToPickUp = FindCustomersForEmployeeByZip(employee.ZipCode);
+                employee.CustomersToPickUpDuringWeek = FindCustomersForEmployeeByZip(employee.ZipCode);
+                employee.CustomersToPickUpToday = FindCustomersForEmployeeByDay(employee.DaysOfTheWeekToPickUp, employee.ZipCode);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -139,6 +141,22 @@ namespace TrashCollection.Controllers
                 }
             }
             var stringCustomersToday = String.Join(", ", customersInZipToday.ToArray());
+            return stringCustomersToday;
+        }
+        public string FindCustomersForEmployeeByDay(DayOfWeek employeeDay, string employeeZip)
+        {
+            List<string> customersInDay = new List<string>();
+            var customers = db.Customers;
+            foreach (var customer in customers)
+            {
+                var DayOfWeekString = customer.DaysOfTheWeekPickUp.ToString();
+                var employeeDayString = employeeDay.ToString();
+                if (DayOfWeekString == employeeDayString && customer.ZipCode == employeeZip)
+                {
+                    customersInDay.Add(customer.FirstName + " " + customer.LastName + " at " + customer.StreetAddress);
+                }
+            }
+            var stringCustomersToday = String.Join(", ", customersInDay.ToArray());
             return stringCustomersToday;
         }
 
