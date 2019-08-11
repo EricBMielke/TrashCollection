@@ -46,6 +46,13 @@
     <td>
         @Html.DisplayFor(modelItem => item.CustomersToPickUp)
     </td>
+
+    @*@foreach (var employeesCustomer in item.CustomersToPickUp)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => employeesCustomer)
+            </td>
+        }*@
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
         @Html.ActionLink("Details", "Details", new { id = item.Id }) |

@@ -14,7 +14,7 @@ namespace TrashCollection.Models
         public string LastName { get; set; }
         public string ZipCode { get; set; }
         public DayOfWeek DaysOfTheWeekToPickUp { get; set; }
-        public List<string> CustomersToPickUp { get; set; }
+        public string CustomersToPickUp { get; set; }
 
     }
 }

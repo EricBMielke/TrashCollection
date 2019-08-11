@@ -12,7 +12,7 @@ namespace TrashCollection.Controllers
 {
     public class EmployeesController : Controller
     {
-        List<string> customersInZipToday;
+       
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -127,8 +127,9 @@ namespace TrashCollection.Controllers
             }
             base.Dispose(disposing);
         }
-        public List<string> FindCustomersForEmployeeByZip(string employeeZip)
+        public string FindCustomersForEmployeeByZip(string employeeZip)
         {
+            List<string> customersInZipToday = new List<string>();
             var customers = db.Customers; 
             foreach (var customer in customers) 
             {
@@ -137,7 +138,8 @@ namespace TrashCollection.Controllers
                     customersInZipToday.Add(customer.FirstName + " " + customer.LastName + " at " + customer.StreetAddress); 
                 }
             }
-            return customersInZipToday;
+            var stringCustomersToday = String.Join(", ", customersInZipToday.ToArray());
+            return stringCustomersToday;
         }
 
     }

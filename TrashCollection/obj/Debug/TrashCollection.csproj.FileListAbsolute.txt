@@ -105,3 +105,5 @@ C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollec
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csprojAssemblyReference.cache
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.EigthMigration.resources
 C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.csproj.GenerateResource.cache
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations.NinthMigration.resources
+C:\Users\Eric\source\repos\TrashCollection\TrashCollection\obj\Debug\TrashCollection.Migrations._11Migration.resources

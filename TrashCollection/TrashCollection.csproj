@@ -180,6 +180,14 @@
     <Compile Include="Migrations\201908081524566_EigthMigration.Designer.cs">
       <DependentUpon>201908081524566_EigthMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908081628379_NinthMigration.cs" />
+    <Compile Include="Migrations\201908081628379_NinthMigration.Designer.cs">
+      <DependentUpon>201908081628379_NinthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908111316476_11Migration.cs" />
+    <Compile Include="Migrations\201908111316476_11Migration.Designer.cs">
+      <DependentUpon>201908111316476_11Migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -278,6 +286,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908081524566_EigthMigration.resx">
       <DependentUpon>201908081524566_EigthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908081628379_NinthMigration.resx">
+      <DependentUpon>201908081628379_NinthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908111316476_11Migration.resx">
+      <DependentUpon>201908111316476_11Migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
