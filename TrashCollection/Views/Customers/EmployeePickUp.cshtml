@@ -11,30 +11,49 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Customer</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-        <div class="form-group">
-            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-        </div>
+<div class="form-horizontal">
+    <h4>Customer</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.FirstName)
+    @Html.HiddenFor(model => model.LastName)
+    @Html.HiddenFor(model => model.City)
+    @Html.HiddenFor(model => model.StreetAddress)
+    @Html.HiddenFor(model => model.OneDayPickUp)
+    @Html.HiddenFor(model => model.PickUpDone)
+    @Html.HiddenFor(model => model.PickUpStartDateSuspend)
+    @Html.HiddenFor(model => model.PickUpEndDateSuspend)
+    @Html.HiddenFor(model => model.DaysOfTheWeekPickUp)
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.MonthlyPayment)
+    @Html.HiddenFor(model => model.ZipCode)
+    @Html.HiddenFor(model => model.State)
+    @Html.HiddenFor(model => model.CurrentlyDue)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-        </div>
 
-        <div class="form-group">
-            @Html.CheckBoxFor(model => model.PickUpDone)
-        </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(model => model.FirstName)
 
+    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Confirm Pickup Complete" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(model => model.LastName)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.StreetAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(model => model.StreetAddress)
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Confirm Pickup Complete" class="btn btn-default" />
         </div>
     </div>
+</div>
 }
 
 <div>

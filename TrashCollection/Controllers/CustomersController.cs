@@ -99,9 +99,9 @@ namespace TrashCollection.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
                 if (customer.PickUpDone == false)
                 {
+                    db.Entry(customer).State = EntityState.Modified;
                     customer.PickUpDone = true;
                     customer.CurrentlyDue += 5;
                 }                    
@@ -109,6 +109,7 @@ namespace TrashCollection.Controllers
                 {
                     customer.PickUpDone = false;
                 }
+                customer.MonthlyPayment = CalculateMonthlyUpcomingFee(customer.DaysOfTheWeekPickUp);
                 db.SaveChanges();
                 return RedirectToAction("EmployeePickUpDetails");
             }
@@ -126,7 +127,7 @@ namespace TrashCollection.Controllers
             {
                 db.Entry(customer).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EmployeePickUpDetails");
             }
 
             return View(customer);
