@@ -59,11 +59,12 @@
                 @Html.DisplayFor(modelItem => employeesCustomer)
             </td>
         }*@
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
+<td>
+    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    @Html.ActionLink("Confirm pick up of Customer", "EmployeePickUpDetails", "Customers", new { id = item.Id }, null)
+</td>
 </tr>
 }
 

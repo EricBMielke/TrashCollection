@@ -132,6 +132,7 @@ namespace TrashCollection.Controllers
         public string FindCustomersForEmployeeByZip(string employeeZip)
         {
             List<string> customersInZipToday = new List<string>();
+
             var customers = db.Customers; 
             foreach (var customer in customers) 
             {
@@ -142,6 +143,22 @@ namespace TrashCollection.Controllers
             }
             var stringCustomersToday = String.Join(", ", customersInZipToday.ToArray());
             return stringCustomersToday;
+        }
+        public List<string> CreateListOfCustomersToday(DayOfWeek employeeDay, string employeeZip)
+        {
+            List<string> customersInRouteToday = new List<string>();
+            var customers = db.Customers;
+            foreach (var customer in customers)
+            {
+                var DayOfWeekString = customer.DaysOfTheWeekPickUp.ToString();
+                var employeeDayString = employeeDay.ToString();
+                if (DayOfWeekString == employeeDayString && customer.ZipCode == employeeZip)
+                {
+                    customersInRouteToday.Add(customer.FirstName);
+                }
+            }
+            return customersInRouteToday;
+
         }
         public string FindCustomersForEmployeeByDay(DayOfWeek employeeDay, string employeeZip)
         {

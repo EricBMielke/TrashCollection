@@ -29,6 +29,9 @@ namespace TrashCollection.Models
 
         public DateTime OneDayPickUp { get; set; }
         public double MonthlyPayment { get; set; }
+        public double CurrentlyDue { get; set; }
+
+        public bool PickUpDone { get; set; }
 
     }
 }

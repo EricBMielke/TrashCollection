@@ -38,6 +38,9 @@
         <th>
             @Html.DisplayNameFor(model => model.MonthlyPayment)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentlyDue)
+        </th>
         <th></th>
     </tr>
 
@@ -69,6 +72,9 @@
     </th>
     <th>
         @Html.DisplayFor(modelItem => item.MonthlyPayment)
+    </th>
+    <th>
+        @Html.DisplayFor(modelItem => item.CurrentlyDue)
     </th>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

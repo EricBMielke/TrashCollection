@@ -20,6 +20,24 @@ namespace TrashCollection.Controllers
             return View(db.Customers.ToList());
         }
 
+        public ActionResult EmployeePickUpDetails()
+        {
+            return View(db.Customers.ToList());
+        }
+        public ActionResult EmployeePickUp(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
+
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
@@ -70,6 +88,29 @@ namespace TrashCollection.Controllers
             if (customer == null)
             {
                 return HttpNotFound();
+            }
+            return View(customer);
+        }
+
+        // POST: Customers/EmployeePickUp
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeePickUp([Bind(Include = "Id,FirstName,LastName,ZipCode,StreetAddress,City,State,DaysOfTheWeekPickUp,PickUpDone")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(customer).State = EntityState.Modified;
+                if (customer.PickUpDone == false)
+                {
+                    customer.PickUpDone = true;
+                    customer.CurrentlyDue += 5;
+                }                    
+                else
+                {
+                    customer.PickUpDone = false;
+                }
+                db.SaveChanges();
+                return RedirectToAction("EmployeePickUpDetails");
             }
             return View(customer);
         }
