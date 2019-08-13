@@ -170,7 +170,7 @@ namespace TrashCollection.Controllers
                     //Ends Here  
                     if (model.UserRoles == "Customer")
                     {
-                        return RedirectToAction("Create", "Customer");
+                        return RedirectToAction("Create", "Customers");
                     }
                     else if (model.UserRoles == "Employee")
                     {

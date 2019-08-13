@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TrashCollection.Models.Customer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Customers";
 }
 
 <h2>Index</h2>
@@ -41,6 +41,12 @@
         <th>
             @Html.DisplayNameFor(model => model.CurrentlyDue)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpEndDateSuspend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpStartDateSuspend)
+        </th>
         <th></th>
     </tr>
 
@@ -75,6 +81,12 @@
     </th>
     <th>
         @Html.DisplayFor(modelItem => item.CurrentlyDue)
+    </th>
+    <th>
+        @Html.DisplayFor(modelItem => item.PickUpStartDateSuspend)
+    </th>
+    <th>
+        @Html.DisplayFor(modelItem => item.PickUpEndDateSuspend)
     </th>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

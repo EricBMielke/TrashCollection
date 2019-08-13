@@ -12,6 +12,7 @@ namespace TrashCollection.Controllers
 {
     public class CustomersController : Controller
     {
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
@@ -241,5 +242,6 @@ namespace TrashCollection.Controllers
 
             return (count * 5);
         }
+
     }
 }
